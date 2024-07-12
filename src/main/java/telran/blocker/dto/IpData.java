@@ -2,11 +2,11 @@ package telran.blocker.dto;
 
 import java.util.Objects;
 
-public record IpData(String IP, String webService, long timestamp) {
+public record IpData(String IP, String webService , long timestamp) {
 	
 	@Override
 	public int hashCode() {
-		return Object.hash(IP, webService);
+		return Objects.hash(IP, webService);
 	}
 	
 	@Override
@@ -18,7 +18,7 @@ public record IpData(String IP, String webService, long timestamp) {
 		if (getClass() != obj.getClass())
 			return false;
 		IpData other = (IpData) obj;
-		return Object.equals(IP, other.IP) && Object.equals(webService, other.webService);
+		return Objects.equals(IP, other.IP) && Objects.equals(webService,  other.webService);
 	}
-	
+
 }

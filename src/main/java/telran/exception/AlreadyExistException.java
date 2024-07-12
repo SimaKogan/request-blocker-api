@@ -1,6 +1,6 @@
 package telran.exception;
 
-public class AlreadyExistException extends RuntimeException {
+public class AlreadyExistException {
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -8,5 +8,5 @@ public class AlreadyExistException extends RuntimeException {
 		super(message);
 		
 	}
-	
+
 }
