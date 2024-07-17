@@ -7,12 +7,12 @@ import jakarta.validation.constraints.*;
 public record AccountData(@NotEmpty @Email(message = "wrong email format") String username, 
 		@NotNull(message = "missing password") @Size(min = 4) String password,
 		@NotEmpty(message = "roles are empty") Roles[] roles) {
-	
+
 	@Override
 	public int hashCode() {
-			return Objects.hash(username);
-		}
-	
+		return Objects.hash(username);
+	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -20,6 +20,10 @@ public record AccountData(@NotEmpty @Email(message = "wrong email format") Strin
 		if (obj == null)
 			return false;
 		if (getClass() != obj.getClass())
-			return Objects.equals(username, other.username);
+			return false;
+		AccountData other = (AccountData) obj;
+		return Objects.equals(username, other.username);
 	}
+	
+	
 }
